@@ -1,0 +1,67 @@
+{
+  "Root":{
+    "Folders":[],
+    "Name":"+solver (target.exe)",
+    "Files":[{
+        "filename":".\\main.f90",
+        "enabled":"1"
+      },{
+        "filename":".\\solve.f90",
+        "enabled":"1"
+      },{
+        "filename":".\\test_F2M.f90",
+        "enabled":"1"
+      }]
+  },
+  "Name":"solver (target.exe)",
+  "Options":{
+    "Compiler Options":{
+      "Fortran Flags":"",
+      "Link Flags":"",
+      "C Flags":""
+    },
+    "Architecture":0,
+    "Type":0,
+    "Revision":2,
+    "Windows GUI":0,
+    "File Options":{
+      "Library Directories":["Default Library Directory","Default Add-On Directory"],
+      "Build Directory":"build",
+      "Module Directory":"modules",
+      "Include Directories":["Default Include Directory","Default Add-On Include Directory"]
+    },
+    "Target":"target.exe",
+    "Fortran Options":{
+      "Use C Preprocessor":"false",
+      "Runtime Diagnostics":"false",
+      "Cray Pointers":"false",
+      "Enable OpenMP":"false",
+      "Default Double for Real":"false"
+    },
+    "Code Generation Options":{
+      "CPU Specific":"false",
+      "Processor":"generic",
+      "Aggressive Loops":"false",
+      "Debugging":"true",
+      "Optimization Mode":0,
+      "Profiling":"false"
+    },
+    "Build Dependencies":1,
+    "Launch Options":{
+      "Working Directory":"",
+      "Build Before Launch":"true",
+      "Keep Console":"true",
+      "Executable":"",
+      "Command Line Arguments":"",
+      "External Console":"false"
+    },
+    "Build Options":{
+      "Makefile":"Makefile",
+      "Auto Makefile":"true"
+    },
+    "Linker Options":{
+      "Static Linking Mode":7,
+      "Link LAPACK":0
+    }
+  }
+}
