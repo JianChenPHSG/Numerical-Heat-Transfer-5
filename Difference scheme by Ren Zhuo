@@ -39,4 +39,51 @@ do i=1,n
     A(i,i-1)=-aw(i)
     
 enddo
-end
+end program CDS
+
+-------------------
+!UWS，Upwind Scheme
+!前面的代码相同，do循环里面的不同
+do i=1,n
+
+    De(i)=(k(i)+k(i+1))/0.2
+    Dw(i)=(k(i-1)+k(i))/0.2
+
+    Fe(i)=0.5*(rho(i)*u(i)+rho(i+1)*u(i+1))
+    Fw(i)=0.5*(rho(i-1)*u(i-1)+rho(i)*u(i))
+
+!coefficient
+    aw(i)=Dw(i)+max(Fw(i),0)
+    ae(i)=De(i)+max(-Fe(i),0)
+    ap(i)=ae(i)+aw(i)+Fe(i)-Fw(i)
+    
+    A(i,i)=ap(i)
+    A(i,i+1)=-ae(i)
+    A(i,i-1)=-aw(i)
+    
+enddo
+
+-------------------
+!MS,Mix Scheme
+!前面的代码相同，do循环里面的不同
+do i=1,n
+
+    De(i)=(k(i)+k(i+1))/0.2
+    Dw(i)=(k(i-1)+k(i))/0.2
+
+    Fe(i)=0.5*(rho(i)*u(i)+rho(i+1)*u(i+1))
+    Fw(i)=0.5*(rho(i-1)*u(i-1)+rho(i)*u(i))
+
+!coefficient
+    aw(i)=Dw(i)+max(Fw(i),Dw(i)+Fw(i)/2,0)
+    ae(i)=De(i)+max(-Fe(i),De(i)-Fe(i)/2,0)
+    ap(i)=ae(i)+aw(i)+Fe(i)-Fw(i)
+    
+    A(i,i)=ap(i)
+    A(i,i+1)=-ae(i)
+    A(i,i-1)=-aw(i)
+    
+enddo
+!还未验证是否正确
+
+!待续...
